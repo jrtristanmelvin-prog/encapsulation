@@ -40,3 +40,17 @@ class Fan:
             f"Color: {self.__color}\n"
             f"On: {self.__on}"
         )
+    
+class SmartFan(Fan):
+    def __init__(self, speed=Fan.SLOW, radius=5.0, color="blue", on=False, wifi=False):
+        super().__init__(speed, radius, color, on)
+        self.__wifi = wifi
+
+    def set_wifi(self, wifi):
+        self.__wifi = wifi
+
+    def get_wifi(self):
+        return self.__wifi
+
+    def display(self):
+        return super().display() + f"\nWiFi Enabled: {self.__wifi}"
